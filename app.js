@@ -43,7 +43,7 @@ $('.column').on('click', function(e) {
     for (var i = 5; i >= 0; i--){
         if (!slots.eq(i).hasClass('red') && !slots.eq(i).hasClass('black')) {
             slots.eq(i).addClass(currentPlayer);
-            // console.log(currentPlayer);
+            console.log(currentPlayer);
             break;
         }
     }
@@ -54,14 +54,19 @@ $('.column').on('click', function(e) {
     if (checkSetForVictory(slots)){
         alert('you won');
     }else if (checkSetForVictory($('.row'+i))){
+        console.log(checkSetForVictory(slots));
         alert('you won');
     }else {
-        for (var i = 0; i < victories.length ; i++){
-            if(checkSetForVictory(victories[i])){
-                return alert ("you win");
-            };
+        if(checkSetForVictory(slot)) {
+            for (var a=0; a<victories.length; a++) {
+                if(checkSetForVictory(victories[i])) {
+                    return alert('you won');
+                }
+            }
         }
     }
+
+
 
 //victoria diagonales.
 
@@ -77,7 +82,7 @@ $('.column').on('click', function(e) {
 function checkSetForVictory(slots) {
     var victory = '';
     for (var i = 0; i < slots.length; i++) {
-        console.log(slots[i]);
+        // console.log(slots[i]);
         if(slots[i].classList.contains(currentPlayer)){
             victory += 'w'
         } else {
