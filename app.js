@@ -1,5 +1,6 @@
 
 //when the current player is red:
+
 var currentPlayer = "red";
 
 var slot = $('.slot') //ALL 42 SLOTS
@@ -38,46 +39,53 @@ for (var i = 0; i < victories.length; i++){
     });
 }
 
-$('.column').on('click', function(e) {
-    var slots = $(e.currentTarget).find('.slot');
-    for (var i = 5; i >= 0; i--){
-        if (!slots.eq(i).hasClass('red') && !slots.eq(i).hasClass('black')) {
-            slots.eq(i).addClass(currentPlayer);
-            console.log(currentPlayer);
-            break;
+    $('.column').on('click', function(e) {
+        var slots = $(e.currentTarget).find('.slot');
+        for (var i = 5; i >= 0; i--){
+            if (!slots.eq(i).hasClass('red') && !slots.eq(i).hasClass('black')) {
+                slots.eq(i).addClass(currentPlayer);
+                console.log(currentPlayer);
+                break;
+            }
         }
-    }
 
-//function that pass element and return true is 4 same in the same row or false if not.
-    // checkSetForVictory(slots);
 
-    if (checkSetForVictory(slots)){
-        alert('you won');
-    }else if (checkSetForVictory($('.row'+i))){
-        console.log(checkSetForVictory(slots));
-        alert('you won');
-    }else {
-        if(checkSetForVictory(slot)) {
-            for (var a=0; a<victories.length; a++) {
-                if(checkSetForVictory(victories[i])) {
-                    return alert('you won');
+
+
+        if (checkSetForVictory(slots)){
+            alert('you won');
+            return true;
+        }else if (checkSetForVictory($('.row'+i))){
+            console.log(checkSetForVictory(slots));
+            alert('you won');
+            return true;
+        } else {
+            if(checkSetForVictory(slot)) {
+                for (var i=0; i<victories.length; i++) {
+                    if(checkSetForVictory(victories[i])) {
+                        return true;
+                        alert('you won');
+                    } else {
+                        return false;
+                    }
                 }
             }
         }
-    }
 
 
 
-//victoria diagonales.
+        if(currentPlayer == 'red') {
+            currentPlayer = "black";
+        }else {
+            currentPlayer="red";
+        }
 
-    if(currentPlayer == 'red') {
-        currentPlayer = "black";
-    }else {
-        currentPlayer="red";
-    }
+    });
 
-});
 
+
+
+//.....//
 
 function checkSetForVictory(slots) {
     var victory = '';
@@ -91,3 +99,8 @@ function checkSetForVictory(slots) {
     }
     return victory.indexOf('wwww') > -1;
 }
+
+//Click event to restart the game
+    $(".button_bottom").click(function () {
+        fn();
+    });
