@@ -3,7 +3,7 @@
 var currentPlayer = "red";
 
 var slot = $('.slot') //ALL 42 SLOTS
-
+// test
 
 var victories = [
     [0, 7, 14, 21],
