@@ -3,7 +3,7 @@ body {
 }
 
 #connect4 {
-    background-color: #82a43a;
+    background-color: #ECA3FF;
     display: table;
     margin-left: auto;
     margin-right: auto;
@@ -11,14 +11,14 @@ body {
 }
 
 .column {
-    width: 70px;
+    width: 80px;
     display: table-cell;
 
 }
 
 .slot {
-    margin: 5px;
-    height: 60px;
+    margin: 10px;
+    height: 70px;
     background-color: white;
     border-radius: 50%;
     margin: 5px;
@@ -29,4 +29,26 @@ body {
 }
 .black {
     background-color: black;
+}
+
+h1 {
+    font-size: 45px;
+    font-style: normal;
+    font-weight: bold;
+}
+#fin {
+    text-align: center;
+}
+.button_bottom {
+    background-color: #e4d1d1;
+    color: gray;
+    padding: 15px 30px;
+    /*text-align: center;*/
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    border-radius: 8px;
+    border: none;
+    margin-top: 15px;
+    margin-left: 10px;
 }
